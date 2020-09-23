@@ -14,7 +14,7 @@ This project is an API Rest, you can call to API with an array as parameter and 
 * body:
 ```json
 {
-  array: [[10, 20, 30], 40]
+  "array": [[10, 20, 30], 40]
 }
 ```
 
