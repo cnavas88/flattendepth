@@ -4,7 +4,7 @@ Repository to flatten array and return its depth
 ## Description
 This project is an API Rest, you can call to API with an array as parameter and return this nested array convert to flatten array. get the depth of the nested array too.
 
-# How to use
+## How to use
 
 1- clone the repository
 2- run the project with go run main.go (listen to :8080)
