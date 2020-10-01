@@ -111,7 +111,7 @@ func TestErrorArrayEmpty(t *testing.T) {
 func TestErrorNotArrayOrSlice(t *testing.T) {
 	_, err := Flatten("45")
 
-	if err.Error() != "Not supported value type string" {
+	if err.Error() != "Not supported value type" {
 		t.Errorf("Expected error: %v", err.Error())
 	}
 }
@@ -125,7 +125,7 @@ func TestErrorNotValidValueInsideArray(t *testing.T) {
 
 	_, err := Flatten(nestedArray)
 
-	if err.Error() != "Value not supported" {
+	if err.Error() != "Not supported value type" {
 		t.Errorf("Expected error: %v", err.Error())
 	}
 }

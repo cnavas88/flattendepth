@@ -110,7 +110,7 @@ func TestErrorArrayEmptyToDepth(t *testing.T) {
 func TestErrorNotArrayOrSliceToDepth(t *testing.T) {
 	_, err := Depth("45")
 
-	if err.Error() != "Not supported value type string" {
+	if err.Error() != "Not supported value type" {
 		t.Errorf("Expected error: %v", err.Error())
 	}
 }
