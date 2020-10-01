@@ -1,4 +1,4 @@
-package logic
+package main
 
 // Flatten enter point to algorithm.
 func Flatten(array interface{}) ([]int, error) {
