@@ -115,3 +115,17 @@ func TestErrorNotArrayOrSlice(t *testing.T) {
 		t.Errorf("Expected error: %v", err.Error())
 	}
 }
+
+func TestErrorNotValidValueInsideArray(t *testing.T) {
+	nestedArray := []interface{}{
+		10,
+		20,
+		"30",
+	}
+
+	_, err := Flatten(nestedArray)
+
+	if err.Error() != "Value not supported" {
+		t.Errorf("Expected error: %v", err.Error())
+	}
+}

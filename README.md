@@ -7,4 +7,3 @@ This project is an API Rest, you can call to API with an array as parameter and 
 ## Run tests
 
 In this only is only tested the logic, to run the logic tests, access to folder logic/ and run next command: "go test"
-
