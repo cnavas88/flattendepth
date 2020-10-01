@@ -2,50 +2,77 @@ package logic
 
 import (
 	"errors"
-	"log"
-	"reflect"
+	"fmt"
 )
 
-// Flatten enter point to algorithm, i am using []float64 return type because Unmarshal function
-// decode the json numbers to float64 type.
-func Flatten(array interface{}) ([]float64, int8, error) {
+// Flatten enter point to algorithm.
+func Flatten(array interface{}) ([]int, error) {
 	if array == nil {
-		return nil, -1, errors.New("The structure to flatten is empty")
+		return nil, errors.New("Invalid array")
 	}
 
-	t := reflect.TypeOf(array)
+	switch v := array.(type) {
+	case []int, []interface{}:
+		return doFlatten(array, []int{}), nil
 
-	if t.Kind() != reflect.Slice && t.Kind() != reflect.Array {
-		return nil, -1, errors.New("The structure to flatten is not and array or slice")
+	default:
+		return nil, fmt.Errorf("Not supported value type %T", v)
 	}
-
-	acc, depth := doFlatten(array, []float64{}, 1)
-
-	return acc, depth, nil
 }
 
-func doFlatten(array interface{}, acc []float64, depth int8) ([]float64, int8) {
-	var subDepth int8
-
+func doFlatten(array interface{}, acc []int) []int {
 	s := array.([]interface{})
-
-	maxDepth := depth
 
 	for _, subArray := range s {
 		switch v := subArray.(type) {
 		case []interface{}:
-			acc, subDepth = doFlatten(v, acc, depth+1)
-			if subDepth > maxDepth {
-				maxDepth = subDepth
-			}
+			acc = doFlatten(v, acc)
 
-		case float64:
+		case int:
 			acc = append(acc, v)
-
-		default:
-			log.Printf("The data %v not flatten. Type invalid.", v)
 		}
 	}
 
-	return acc, maxDepth
+	return acc
 }
+
+// package logic
+
+// import (
+// 	"errors"
+// 	"fmt"
+// )
+
+// func Depth(array interface{}) (int, error) {
+// 	if array == nil {
+// 		return nil, errors.New("Invalid array")
+// 	}
+
+// 	switch v := array.(type) {
+// 	case []int, []interface{}:
+// 		return deep(array, 1), nil
+
+// 	default:
+// 		return nil, fmt.Errorf("Not supported value type %T", v)
+// 	}
+// }
+
+// func doDepth(array []interface{}, depth int) int {
+// 	var subDepth int
+
+// 	s := array.([]interface{})
+
+// 	maxDepth := depth
+
+// 	for _, subArray := range s {
+// 		switch v := subArray.(type) {
+// 		case []interface{}:
+// 			subDepth = doDepth(v, depth + 1)
+// 			if subDepth > maxDepth {
+// 				maxDepth = subDepth
+// 			}
+
+// 	}
+
+// 	return depth
+// }
