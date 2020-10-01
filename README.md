@@ -7,7 +7,7 @@ This project is an API Rest, you can call to API with an array as parameter and 
 ## How to use
 
 1- clone the repository
-2- run the project with go run main.go (listen to :8080)
+2- run the project with "go run main.go" (listen to :8080)
 3- open postman and generate the next request:
 * method: POST
 * url: localhost:8080
@@ -18,5 +18,7 @@ This project is an API Rest, you can call to API with an array as parameter and 
 }
 ```
 
+## Run tests
 
+In this only is only tested the logic, to run the logic tests, access to folder logic/ and run next command: "go test"
 
