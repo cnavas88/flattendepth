@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func controlErrors(array interface{}) error {
+func isValidArray(array interface{}) error {
 	if array == nil {
 		return errors.New("Invalid array")
 	}

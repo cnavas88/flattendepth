@@ -63,11 +63,11 @@ func TestThirdFlattenArray(t *testing.T) {
 					[]interface{}{30},
 				},
 			},
-			[]interface{}{40},
+			[]int{40, 50, 60, 70},
 		},
 	}
 
-	expectedArray := []int{10, 20, 30, 40}
+	expectedArray := []int{10, 20, 30, 40, 50, 60, 70}
 
 	arrayFlatten, err := Flatten(nestedArray)
 

@@ -2,7 +2,7 @@ package logic
 
 // Depth return depth of array or slice
 func Depth(array interface{}) (int, error) {
-	if err := controlErrors(array); err != nil {
+	if err := isValidArray(array); err != nil {
 		return -1, err
 	}
 	return doDepth(array, 0), nil
@@ -25,5 +25,5 @@ func doDepth(array interface{}, depth int) int {
 
 		}
 	}
-	return depth
+	return maxDepth
 }
