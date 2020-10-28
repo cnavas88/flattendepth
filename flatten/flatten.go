@@ -1,4 +1,4 @@
-package main
+package flatten
 
 // Flatten enter point to algorithm.
 func Flatten(array interface{}) ([]int, error) {

@@ -1,9 +1,26 @@
 # flattendepth
-Repository to flatten array and return its depth
+
+Package to flatten array and return depth of an array
 
 ## Description
-This project is an API Rest, you can call to API with an array as parameter and return this nested array convert to flatten array. get the depth of the nested array too.
+
+The project has two main functions:
+
+- flatten array 
+- depth array
 
 ## Run tests
 
-In this only is only tested the logic, to run the logic tests, access to folder logic/ and run next command: "go test"
+To execute test you can to build and run docker container:
+
+to build docker container for creating the image:
+
+```bash
+docker build -t flatten .
+```
+
+to run flatten container:
+
+```bash
+docker run flatten
+```

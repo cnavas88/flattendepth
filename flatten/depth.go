@@ -1,4 +1,4 @@
-package main
+package flatten
 
 // Depth return depth of array or slice
 func Depth(array interface{}) (int, error) {
